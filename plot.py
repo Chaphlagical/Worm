@@ -6,10 +6,12 @@ colors=['red','blue','green','orange','black']
 
 class plot():
     
+    # 初始化中文字体
     def init(self):
         matplotlib.rcParams['font.serif'] = ['simhei']
         matplotlib.rcParams['axes.unicode_minus'] = False
     
+    # 绘制直方图
     def rect(self,dict,name):
         label=dict.keys()
         num=[dict[i] for i in dict.keys()]
@@ -23,6 +25,7 @@ class plot():
         plt.title(name+'关于年份的变化趋势')
         plt.savefig("./data/" + name + ".png")
     
+    # 绘制折线图
     def line(self,dict_list,name_list,y_label):
         fig = plt.figure(figsize=(20, 12))
         year=list(dict_list[0].keys())
@@ -37,6 +40,7 @@ class plot():
         plt.title(y_label+"与年份的关系")
         plt.savefig("./data/" + y_label + ".png")
 
+    # 绘制饼状图
     def pie(self,labels,fracs,name):
         fig = plt.figure(figsize=(20, 20))
         plt.pie(x=fracs, labels=labels,  autopct='%3.1f %%',
